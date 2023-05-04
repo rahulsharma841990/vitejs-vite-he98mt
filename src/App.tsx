@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Navbar from './Topbar';
+import { SampleContext } from './context/SampleContext';
 // import './App.css';
 
 interface Record {
@@ -115,6 +116,11 @@ function App() {
     );
   };
 
+  const changeTitle = () => {
+      const {sampleValue, setSampleValue} = SampleContext;
+      setSampleValue('This is sample text');
+  }
+
   return (
     <>
       <Container>
@@ -127,6 +133,7 @@ function App() {
         <Row>
           <Col className="mt-1">
             <Button onClick={createRow}>Add Row</Button>
+            <Button className="ml-5" onClick={changeTitle}>Change Title</Button>
           </Col>
         </Row>
         <Row className="mt-3">
